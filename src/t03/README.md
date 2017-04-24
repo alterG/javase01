@@ -2,4 +2,4 @@
 
 Составить программу для вычисления значений функции F(x) на отрезке [а, b] с шагом h. Результат представить в виде таблицы, первый столбец которой – значения аргумента, второй - соответствующие значения функции:
 
-https://github.com/alterG/javase01/blob/master/src/t03/res/example01.PNG?raw=true
+![](https://github.com/alterG/javase01/blob/master/src/t03/res/example01.PNG?raw=true)
