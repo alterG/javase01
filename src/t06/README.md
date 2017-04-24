@@ -4,4 +4,4 @@
 
 Спроектировать и разработать классы Запись в блокноте и Блокнот (записи блокнота хранятся в массиве). Реализовать методы: Добавить запись, Удалить запись, Редактировать запись, Посмотреть все записи. Написать для данного кода javadoc-документацию.
 
-![](https://github.com/alterG/javase01/blob/master/src/t06/example01.PNG?raw=true)
+![](https://github.com/alterG/javase01/blob/master/src/t06/res/example01.PNG?raw=true)
