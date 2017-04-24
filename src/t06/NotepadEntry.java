@@ -1,7 +1,10 @@
 package t06;
 
 /**
- * Created by alterG on 23.04.2017.
+ * Entry, which can be written in notepad {@link Notepad}
+ *
+ * @author alterG
+ * @version 1.0
  */
 public class NotepadEntry {
 
@@ -26,6 +29,10 @@ public class NotepadEntry {
         this.content = content;
     }
 
+    /**
+     *
+     * @return formatted String representing an entry
+     */
     public String getEntry() {
         return header+"\n-----\n"+content+"\n";
     }
