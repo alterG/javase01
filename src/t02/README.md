@@ -2,4 +2,4 @@
 
 Найти наименьший номер элемента последовательности, для которого выполняется условие M. Вывести на экран этот номер и все элементы ai  где i = 1, 2, ..., п.
 
-![](https://github.com/alterG/javase01/blob/master/src/t04/res/example01.PNG?raw=true)
+![](https://github.com/alterG/javase01/blob/master/src/t02/res/example01.PNG?raw=true)
