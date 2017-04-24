@@ -54,7 +54,6 @@ public class Main {
                     try {
                         System.out.print("Type index of entry to edit it: ");
                         int entryNumber = scanner.nextInt();
-                        System.out.println("test index is " +(entryNumber+10));
                         System.out.print("Type new header of entry: ");
                         bufHead = reader.readLine();
                         System.out.print("Type new body of entry: ");
