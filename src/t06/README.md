@@ -1,4 +1,5 @@
 **Демонстрация работы приложения** https://www.youtube.com/watch?v=_FneaPLYFew
+
 **Документация http://rubickcube.ru/epam/t06/**
 
 **Задание 6. Простейшие классы и объекты**
