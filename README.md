@@ -15,5 +15,5 @@
 **Codility.com**    
 Решения находятся в папке `codility/lesson`, задачи сопровождены readme с условиями.  
 - [X] BinaryGap
-- [ ] Arrays
+- [X] Arrays (2/2)
 - [ ] Time Complexity
