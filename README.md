@@ -12,7 +12,8 @@
 - [X] Keywords, OOP
 - [ ] Input, Output, Collections, JVM  
 
-**Codility.com**  
+**Codility.com**    
+Решения находятся в папке `codility/lesson`, задачи сопровождены readme с условиями.  
 - [X] BinaryGap
-- [ ] Arrays
+- [X] Arrays (2/2)
 - [ ] Time Complexity
