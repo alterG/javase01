@@ -11,3 +11,8 @@
 - [X] Arrays
 - [X] Keywords, OOP
 - [ ] Input, Output, Collections, JVM  
+
+**QCodility.com**  
+- [X] BinaryGap
+- [ ] Arrays
+- [ ] Time Complexity
