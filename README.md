@@ -1,4 +1,18 @@
-#Homework for EPAM java course
+## **Homework for EPAM java course**  
+Решения находятся в папке `src/`, задачи сопровождены readme с условиями.  
+Для [задачи №6](https://github.com/alterG/javase01/tree/master/src/t06) добавлена видео-демонстрация, документацию можно [посмотреть онлайн](http://rubickcube.ru/epam/t06).    
+- [X] Module #1
+- [ ] Module #2  
 
-Вопросы:
-* Радмир, посмотрите пожалуйста bat-file (t01). Он **возвращается в корневую папку**, чтобы запустить компиляцию. При компиляции из других папок не находится пакет с классом Logic. Так и нужно делать или нет?
+**Quizful.com**  
+- [X] Main method, primitive types
+- [X] Operators
+- [X] If, else, switch and loops
+- [X] Arrays
+- [X] Keywords, OOP
+- [ ] Input, Output, Collections, JVM  
+
+**Codility.com**  
+- [X] BinaryGap
+- [ ] Arrays
+- [ ] Time Complexity
