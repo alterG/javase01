@@ -12,7 +12,7 @@
 - [X] Keywords, OOP
 - [ ] Input, Output, Collections, JVM  
 
-**QCodility.com**  
+**Codility.com**  
 - [X] BinaryGap
 - [ ] Arrays
 - [ ] Time Complexity
