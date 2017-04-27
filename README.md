@@ -16,4 +16,31 @@
 Решения находятся в папке `codility/lesson`, задачи сопровождены readme с условиями.  
 - [X] BinaryGap
 - [X] Arrays (2/2)
-- [ ] Time Complexity
+- [X] Time Complexity (3/3)
+- [ ] Counting Elements (0/4)
+- [ ] Prefix Sums (0/4)
+
+**Книги**
+- [ ] Брюс Эккель - Философия Java `(162/1170)`  
+
+**Доклады**  
+* Вячеслав Круглов — Как начинающему Java-разработчику подружиться со своей базой данных? [ссылка](https://www.youtube.com/watch?v=dFASbaIG-UU) **(4/10)**
+```
+Оптимистичные, пессимистичные (read/write) блокировки, ORM, JPA, её реализации/провайдеры (Hibernate).  
+```
+* Владимир Иванов — G1 Garbage Collector. [ссылка](https://www.youtube.com/watch?v=iGRfyhE02lA) **(8/10)**
+```
+Слабая теория о поколениях, GC roots, STW-pause, object graph, Eden, FormSpace, ToSpace, Old Generation, Throughput-Latency-Footprint, STW-сборка против Инкрементальной, SerialGC, ParralelGC, CMS, G1б, -XX:+UseG1GC, -XX:MaxGCPauseMillis, -XX:GCPauseIntervalMillis.
+```
+* Егор Бугаенко — Объектно-ориентированное вранье. [ссылка](https://www.youtube.com/watch?v=lfdAwl3-X_c&t=3s) **(2/10)**
+```
+Getters, setters, static methods нарушают парадигму ООП, объект представляет самостоятельную живую сущность, которая берет на себя выполнение определенных задач, вместо "широких" классов нужно использовать много более конкретных.
+```
+* Никита Липский, Владимир Иванов — JVM: краткий курс общей анатомии. [ссылка](https://www.youtube.com/watch?v=-fcj6EL9rc4) **(6/10)**
+```
+пересмотреть
+```
+* Алексей Шипилёв — Катехизис java.lang.String. [ссылка](https://www.youtube.com/watch?v=SZFe3m1DV1A) **(5/10)**
+```
+пересмотреть
+```
