@@ -16,4 +16,6 @@
 Решения находятся в папке `codility/lesson`, задачи сопровождены readme с условиями.  
 - [X] BinaryGap
 - [X] Arrays (2/2)
-- [ ] Time Complexity
+- [X] Time Complexity (3/3)
+- [ ] Counting Elements (0/4)
+- [ ] Prefix Sums (0/4)
