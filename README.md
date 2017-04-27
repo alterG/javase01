@@ -19,3 +19,18 @@
 - [X] Time Complexity (3/3)
 - [ ] Counting Elements (0/4)
 - [ ] Prefix Sums (0/4)
+
+
+**Доклады**  
+* Вячеслав Круглов — Как начинающему Java-разработчику подружиться со своей базой данных? [ссылка](https://www.youtube.com/watch?v=dFASbaIG-UU) **(4/10)**
+```
+Оптимистичные, пессимистичные (read/write) блокировки, ORM, JPA, её реализации/провайдеры (Hibernate).  
+```
+* Владимир Иванов — G1 Garbage Collector. [ссылка](https://www.youtube.com/watch?v=iGRfyhE02lA) **(8/10)**
+```
+Слабая теория о поколениях, GC roots, STW-pause, object graph, Eden, FormSpace, ToSpace, Old Generation, Throughput-Latency-Footprint, STW-сборка против Инкрементальной, SerialGC, ParralelGC, CMS, G1б, -XX:+UseG1GC, -XX:MaxGCPauseMillis, -XX:GCPauseIntervalMillis.
+```
+* Егор Бугаенко — Объектно-ориентированное вранье. [ссылка](https://www.youtube.com/watch?v=lfdAwl3-X_c&t=3s) **(2/10)**
+```
+Getters, setters, static methods нарушают парадигму ООП, объект представляет самостоятельную живую сущность, которая берет на себя выполнение определенных задач, вместо "широких" классов нужно использовать много более конкретных.
+```
