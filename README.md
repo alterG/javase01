@@ -17,7 +17,7 @@
 - [X] BinaryGap
 - [X] Arrays (2/2)
 - [X] Time Complexity (3/3)
-- [X] Counting Elements (0/4)
+- [X] Counting Elements (4/4)
 - [ ] Prefix Sums (1/4)
 
 **Книги**
