@@ -18,7 +18,8 @@
 - [X] Arrays (2/2)
 - [X] Time Complexity (3/3)
 - [X] Counting Elements (4/4)
-- [ ] Prefix Sums (1/4)
+- [X] Prefix Sums (4/4)
+- [ ] Sorting (0/4)
 
 **Книги**
 - [ ] Брюс Эккель - Философия Java `(162/1170)`  
