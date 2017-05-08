@@ -1,6 +1,7 @@
 package module2.t02;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by alterG on 06.05.2017.
@@ -37,5 +38,9 @@ public class Employee {
         for (int i = 0; i < array.length; i++) {
             stationaryStuffArrayList.add(array[i]);
         }
+    }
+
+    public void addStationaryStuff (ArrayList<StationaryStuff> list) {
+        stationaryStuffArrayList = list;
     }
 }
