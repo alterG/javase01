@@ -7,10 +7,21 @@ import module2.t02.StationaryStuff;
  */
 public class SimplePencil extends StationaryStuff{
     private int cost;
+    private String brand;
+
+    @Override
+    public String getBrand() {
+        return brand;
+    }
+
+    public SimplePencil(int cost, String brand) {
+        this.cost = cost;
+        this.brand = brand;
+    }
 
     @Override
     public String toString() {
-        return String.format("Простой карандаш за %d руб.\n", cost);
+        return String.format("Простой карандаш \"%s\" за %d руб.", brand, cost);
     }
 
     public SimplePencil(int cost) {
@@ -18,7 +29,7 @@ public class SimplePencil extends StationaryStuff{
     }
 
     @Override
-    protected int getCost() {
+    public int getCost() {
         return cost;
     }
 }

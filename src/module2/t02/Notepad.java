@@ -6,6 +6,12 @@ package module2.t02;
  */
 public class Notepad extends StationaryStuff {
     private int cost;
+    private String brand;
+
+    public Notepad(int cost, String brand) {
+        this.cost = cost;
+        this.brand = brand;
+    }
 
     public Notepad(int cost) {
         this.cost = cost;
@@ -13,11 +19,16 @@ public class Notepad extends StationaryStuff {
 
     @Override
     public String toString() {
-        return String.format("Блокнот за %d руб.", cost);
+        return String.format("Блокнот \"%s\" за %d руб.", brand, cost);
     }
 
     @Override
-    protected int getCost() {
+    public int getCost() {
         return cost;
+    }
+
+    @Override
+    public String getBrand() {
+        return brand;
     }
 }

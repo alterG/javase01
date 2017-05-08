@@ -6,10 +6,21 @@ package module2.t02;
  */
 public class Eraser extends StationaryStuff {
     private int cost;
+    private String brand;
+
+    @Override
+    public String getBrand() {
+        return brand;
+    }
+
+    public Eraser(int cost, String brand) {
+        this.cost = cost;
+        this.brand = brand;
+    }
 
     @Override
     public String toString() {
-        return String.format("Стирательная резинка за %d руб.", cost);
+        return String.format("Стирательная \"%s\" резинка за %d руб.",brand, cost);
     }
 
     public Eraser(int cost) {
@@ -17,7 +28,7 @@ public class Eraser extends StationaryStuff {
     }
 
     @Override
-    protected int getCost() {
+    public int getCost() {
         return cost;
     }
 }

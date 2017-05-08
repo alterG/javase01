@@ -22,5 +22,6 @@ public abstract class StationaryStuff {
     }
 
     /** @return cost of stationary stuff in rubles*/
-    abstract protected int getCost();
+    abstract public int getCost();
+    abstract public String getBrand();
 }

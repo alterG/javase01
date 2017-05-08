@@ -25,4 +25,17 @@ public class GloveService {
         startingKitList.add(simplePencil);
         return startingKitList;
     }
+
+    static public ArrayList<StationaryStuff> getListAdvancedKit() {
+        ArrayList<StationaryStuff> advancedKitList = new ArrayList<>();
+        advancedKitList.add(new Pen("Epam Inc", 70, 0.7f, "Blue"));
+        advancedKitList.add(new Pen("Erich Krause", 70, 0.7f, "Blue"));
+        advancedKitList.add(new Pen("Pilot", 70, 0.7f, "Blue"));
+        advancedKitList.add(new Pen("Epam Inc", 60, 0.7f, "Blue"));
+        advancedKitList.add(new Pen("Epam Inc", 50, 0.7f, "Blue"));
+        advancedKitList.add(new Eraser(25, "Power-A"));
+        advancedKitList.add(new Notepad(40, "PirateBay"));
+        advancedKitList.add(new SimplePencil(10, "RDBC"));
+        return advancedKitList;
+    }
 }

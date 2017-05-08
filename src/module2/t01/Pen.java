@@ -65,7 +65,7 @@ public class Pen extends StationaryStuff {
     }
 
     @Override
-    protected int getCost() {
+    public int getCost() {
         return cost;
     }
 }
