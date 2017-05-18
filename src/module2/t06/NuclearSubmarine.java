@@ -4,7 +4,7 @@ import module2.t07.*;
 /**
  * Created by alterG on 10.05.2017.
  */
-@NuclearToJavadoc(matterial = "iron", century = 21)
+@NuclearToJavadoc(material = "iron")
 public class NuclearSubmarine {
     private boolean isWork;
     private NuclearSubmarineEngine engine;

@@ -6,6 +6,6 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NuclearToJavadoc {
-    String matterial();
-    int century();
+    String material();
+    int century() default 21;
 }
