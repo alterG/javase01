@@ -1,4 +1,4 @@
-package com.codility.lesson9.MaxProfit.MaxDoubleSliceSum;
+package com.codility.lesson9.MaxDoubleSliceSum;
 
 
 /**
