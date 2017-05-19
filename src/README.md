@@ -2,6 +2,7 @@
 
 **Опции JVM**  
  * -XX:AutoBoxCacheMax=size (def 128) - увеличивает диапозон кэшируемых значений.
+ * -XX:+OptimizeStringConcat (def off) - оптимизирует выделение памяти при многократной конкатенации (память выделяется только 1 раз)
  ```
 StringBuilder().append(...).toString()
 ```
