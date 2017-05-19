@@ -17,10 +17,6 @@ public class StringMethods {
         char[] bytes ={'a', 'b', 'c', 'd', 'e'};
         System.out.println(String.copyValueOf(bytes));
 
-//        Substring
-        String main = "There is some words";
-        System.out.println(main.substring(9));
-
 //        true if string (not part of it) is regular expression
         String b = "stop the agent 007 :)";
         System.out.println(b.matches("[\\w\\s]*\\d{3} :\\)"));
@@ -39,7 +35,6 @@ public class StringMethods {
 //      Output:
 //      so much spaces
 //      abcde
-//      some words
 //      true
 //      Розовые зайцы копают снег
 //      Разовые зайцы глотают снег
