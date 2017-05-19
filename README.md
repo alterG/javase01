@@ -23,7 +23,7 @@
 - [X] Stacks and Queues (4/4)
 - [X] Leader (2/2)
 - [X] Maximum slice problem (3/3)
-- [] Prime and composite numbers (3/4)
+- [ ] Prime and composite numbers (3/4)
 
 **Книги**
 - [ ] Брюс Эккель - Философия Java `(162/1170)`  
