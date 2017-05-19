@@ -21,7 +21,27 @@ public class University implements Universable {
     }
 
     @Override
+    public Student getBestStudent(Subject sub) {
+        return null;
+    }
+
+    @Override
+    public List<Mark> getStudentMarks(Student stud, Subject sub) {
+        return null;
+    }
+
+    @Override
+    public List<Student> getTop10(Subject sub) {
+        return null;
+    }
+
+    @Override
     public void addStudent(Student stud) {
+
+    }
+
+    @Override
+    public void removeStudent(Student stud) {
 
     }
 }
