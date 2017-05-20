@@ -44,12 +44,18 @@ public class EarlyAndDynamicLinking {
     private void method4() {
         System.out.println("method4");
     }
+
+    // demonstration of inheritance of static methods (see Child.method1())
+    static void method5() {
+        System.out.println("method5");
+    }
 }
 
 class Child extends EarlyAndDynamicLinking{
 
     // dynamic linking
     public void method1() {
+        method5(); // demonstration of inheritance static methods
         System.out.println("method1_c");
     }
 

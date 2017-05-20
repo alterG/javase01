@@ -5,7 +5,7 @@ import sandbox.AccessModificators.PackagePrivateClass.Parent.Parent;
 /**
  * Note: there example for static fields (and methods), for non-static fields/methods rules are the same
  * class: public, package-private (access to private fields only in the same package)
- * for inner class also static {@link }
+ * for inner class also exist static modifier {@link sandbox.Static.StaticClasses.Example}
  *
  * fields (also limited by class access modifier): public, protected (access for childs and classes in the same package),
  * package-private()
