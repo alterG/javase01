@@ -19,7 +19,11 @@
 - [X] Time Complexity (3/3)
 - [X] Counting Elements (4/4)
 - [X] Prefix Sums (4/4)
-- [ ] Sorting (0/4)
+- [X] Sorting (4/4)
+- [X] Stacks and Queues (4/4)
+- [X] Leader (2/2)
+- [X] Maximum slice problem (3/3)
+- [ ] Prime and composite numbers (3/4)
 
 **Книги**
 - [ ] Брюс Эккель - Философия Java `(162/1170)`  
