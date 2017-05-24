@@ -25,8 +25,33 @@ public class CrazyLogger {
                 .append(message+"\n");
     }
 
+    public void findMessages(String message) {
+        String[] messages = storage.toString().split("\n");
+        boolean isFound = false;
+        for (String entry : messages) {
+            if (entry.toLowerCase().contains(message.toLowerCase())) {
+                System.out.println(entry);
+                isFound = true;
+            }
+        }
+        if (!isFound) System.out.println("This message is missing.");
+    }
+
+    public void findByDate(Date date) {
+        String[] messages = storage.toString().split("\n");
+        boolean isFound = false;
+        for (String entry : messages) {
+            if (entry.contains(format.format(date))) {
+                System.out.println(entry);
+                isFound = true;
+            }
+        }
+        if (!isFound) System.out.println("No messages at " + date +".");
+
+    }
+
     public void printContent() {
-        System.out.println(storage);
+        System.out.print(storage);
     }
 
 }
