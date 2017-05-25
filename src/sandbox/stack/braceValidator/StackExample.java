@@ -1,4 +1,4 @@
-package sandbox.stack;
+package sandbox.stack.braceValidator;
 
 
 import java.lang.reflect.Array;
@@ -48,7 +48,7 @@ public class StackExample {
                     stack.push(c);
             }
         }
-        return true;
+        return stack.isEmpty();
 
     }
 

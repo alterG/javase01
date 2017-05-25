@@ -19,7 +19,7 @@ public class Main {
         try (ObjectOutputStream stream1 = new ObjectOutputStream(new FileOutputStream(getPath("out.txt")))) {
             stream1.writeObject(line1);
             line1.setIndex(3);          //index didn't change cause object has been serializable
-//            stream1.reset();          CARE! stream data doesn't erase
+            stream1.reset();          //CARE! stream data doesn't erase
             stream1.writeObject(line1);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -42,7 +42,7 @@ public class Main {
         }
     }
 
-    //Note: Files are created in subdirectory in src directory!
+    //Note: Files are created by program should be placed in subdirectory of current package (instead of resource directory)
     private static String getPath(String path) {
         Class<Main> cl = Main.class;
         String filePath = "." + new String(".resources." + cl.getPackage().getName() + ".").replace('.', '\\') + path;

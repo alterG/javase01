@@ -2,6 +2,7 @@ package sandbox.stack;
 
 import org.junit.Before;
 import org.junit.Test;
+import sandbox.stack.braceValidator.StackExample;
 
 import static org.junit.Assert.*;
 
@@ -26,5 +27,6 @@ public class StackExampleTest {
         assertTrue(sol.solution("{()}{()}"));
         assertTrue(sol.solution("aaaaaaaaaa"));
         assertTrue(!sol.solution("]["));
+        assertTrue(!sol.solution("["));
     }
 }
