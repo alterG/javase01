@@ -5,6 +5,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
+ * Условие:
+ * Необходимо создать класс CrazyLogger, ведущий журнал лога, используя как накопитель
+ * объект типа StringBuilder. Логгер должен содержать методы поиска определенной информации в
+ * таком логе [с возможностью вывода ее в поток ввода вывода]. Информацию логгер хранит в
+ * форматированном виде: dd-mm-YYYY : hh-mm – message;
  * Created by alterG on 20.05.2017.
  */
 public class CrazyLogger {
@@ -17,6 +22,14 @@ public class CrazyLogger {
         this.add("Logger has run.");
     }
 
+    /**
+     * Create copy of existing storage
+     * @param loggerPrototype
+     */
+    public CrazyLogger(StringBuilder loggerPrototype) {
+        storage = new StringBuilder(loggerPrototype);
+    }
+
     public void add(String message) {
         Date currentDate = Calendar.getInstance().getTime();
         storage
@@ -25,7 +38,7 @@ public class CrazyLogger {
                 .append(message+"\n");
     }
 
-    public void findMessages(String message) {
+    public void findByMessage(String message) {
         String[] messages = storage.toString().split("\n");
         boolean isFound = false;
         for (String entry : messages) {

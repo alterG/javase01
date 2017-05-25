@@ -1,7 +1,6 @@
 package module3.t01;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.io.IOException;
 import java.util.Date;
 
 /**
@@ -9,7 +8,8 @@ import java.util.Date;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
         CrazyLogger logger = new CrazyLogger();
         logger.add("Some problem.");
         logger.add("Problem has fixed.");
@@ -17,7 +17,7 @@ public class Main {
         System.out.println("All messages:");
         logger.printContent();
         System.out.println("Search by \"Problem\":");
-        logger.findMessages("Problem");
+        logger.findByMessage("Problem");
         System.out.println("Search by date (today):");
         Date date = new Date();
         logger.findByDate(date);
