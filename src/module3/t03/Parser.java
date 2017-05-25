@@ -8,6 +8,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ *  Условие:
+ *  Необходимо определить в тексте статьи* (html-файл), ссылается ли автор на рисунки
+ *  последовательно или нет, а также выделить все предложения, в которых встречаются ссылки на
+ *  рисунки. Для разбора текста использовать регулярные выражения.
  * Created by alterG on 25.05.2017.
  */
 public class Parser {
@@ -47,6 +51,11 @@ public class Parser {
         return new InputStreamReader (cl.getResourceAsStream(path), Charset.forName("windows-1251"));
     }
 
+    /**
+     * Method skips head tag and set mark to body tag
+     * @param reader
+     * @throws IOException
+     */
     private static void skipMarkToBody(BufferedReader reader) throws IOException {
         while (reader.ready()) {
             if (reader.readLine().contains("<body>")) break;
