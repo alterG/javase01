@@ -20,7 +20,8 @@ public class Main {
             line1.setIndex(3);
             stream1.writeObject(line1);     // index didn't change cause object has been serialized
             stream1.reset();                // CARE! stream data don't erase
-            stream1.writeObject(line1);     // Now stream1 has: 2 objects line1 (index = 1) and 1 object line1 (index = 3)
+            stream1.writeObject(line1);     // Now stream1 has: 2 objects Line (index = 1) and 1 object Line (index = 3)
+                                            // Note: Line has written after reset(), has new references for its fields (new point1, point2 in this way)
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -60,16 +61,16 @@ public class Main {
 //        Output:
 //        Deserializable objects:
 //        Line index = 1
-//        Object reference = sandbox.Serialization.Example2.Line@4f3f5b24
-//        From point 1 = Point{x=1.0, y=1.0}
-//        To point 2 = Point{x=2.0, y=2.0}
+//        Object reference = 4f3f5b24
+//        From point 1 = Point{x=1.0, y=1.0} 7291c18f
+//        To point 2 = Point{x=2.0, y=2.0} 34a245ab
 
 //        Line index = 1
-//        Object reference = sandbox.Serialization.Example2.Line@4f3f5b24
-//        From point 1 = Point{x=1.0, y=1.0}
-//        To point 2 = Point{x=2.0, y=2.0}
+//        Object reference = 4f3f5b24
+//        From point 1 = Point{x=1.0, y=1.0} 7291c18f
+//        To point 2 = Point{x=2.0, y=2.0} 34a245ab
 
 //        Line index = 3
-//        Object reference = sandbox.Serialization.Example2.Line@7291c18f
-//        From point 1 = Point{x=1.0, y=1.0}
-//        To point 2 = Point{x=2.0, y=2.0}
+//        Object reference = 7cc355be
+//        From point 1 = Point{x=1.0, y=1.0} 6e8cf4c6
+//        To point 2 = Point{x=2.0, y=2.0} 12edcd21
