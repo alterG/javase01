@@ -4,19 +4,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
 /**
+ * Условие:
+ * Прочитайте файл, содержащий код на языке Java. Определите, какие ключевые слова
+ * языка Java это код содержит. Выведите эти слова и их количество в другой файл. Используйте
+ * только байтовые потоки ввода-вывода.
  * Created by alterG on 25.05.2017.
  */
-public class LexicalAnalizator {
+public class LexicalAnalyzerByteStream {
     private static final String pathToKeywords = "keywordsjava.txt";
     private static final File inputFile = getResourceAsFile("Main.java");
     private static final File outputFile = getOutputFile("out.txt");
 
-//    ToDo: refactor (minimaze autoboxing)
     public static final void main(String[] args) throws IOException {
         checkFiles(inputFile, outputFile);
         Set<String> javaKeyWordsSet = getJavaKeywordsSetFormFile(pathToKeywords);
@@ -50,22 +51,26 @@ public class LexicalAnalizator {
         System.out.println(String.format("Анализ ключевых слов в файле %s успешно записан в %s", inputFile.getName(), outputFile.getName()));
     }
 
-    private static Set<String> getJavaKeywordsSetFormFile(String path) throws IOException {
+    public static Set<String> getJavaKeywordsSetFormFile(String path) throws IOException {
 
-        final File javaKeywordsFile = getResourceAsFile(pathToKeywords);
-        FileInputStream in = new FileInputStream(javaKeywordsFile);
+        String result = readByteFile(path);
         Set<String> set = new HashSet<>();
-        byte[] inputArray = new byte[(int) javaKeywordsFile.length()];
-        in.read(inputArray);
-        in.close();
-        String result = new String(inputArray);
         String[] keyWords = result.split("[,\\s]+");
         set.addAll(Arrays.asList(keyWords));
         return set;
     }
 
+    private static String readByteFile(String path) throws IOException {
+        final File javaKeywordsFile = getResourceAsFile(path);
+        FileInputStream in = new FileInputStream(javaKeywordsFile);
+        byte[] inputArray = new byte[(int) javaKeywordsFile.length()];
+        in.read(inputArray);
+        in.close();
+        return new String(inputArray);
+    }
 
-    private static Entry[] getEntryArray (Map<String, Integer> map) {
+
+    public static Entry[] getEntryArray (Map<String, Integer> map) {
         Entry[] result = new Entry[map.size()];
         int i = 0;
         for (String key : map.keySet() ) {
@@ -79,13 +84,13 @@ public class LexicalAnalizator {
     Need to be in subdirectory of package instead of root directory
      */
     private static File getOutputFile(String path) {
-        Class<LexicalAnalizator> cl = LexicalAnalizator.class;
+        Class<LexicalAnalyzerByteStream> cl = LexicalAnalyzerByteStream.class;
         String pathname = ".\\src\\" + cl.getPackage().getName().replaceAll("\\.", "\\\\") + "\\" + path;
         return new File(pathname);
     }
 
     private static File getResourceAsFile(String path) {
-        Class<LexicalAnalizator> cl = LexicalAnalizator.class;
+        Class<LexicalAnalyzerByteStream> cl = LexicalAnalyzerByteStream.class;
         return new File(cl.getResource(path).getFile());
     }
 
@@ -107,34 +112,5 @@ public class LexicalAnalizator {
         if (outputFile.exists() && !outputFile.canWrite()) {
             throw new IllegalArgumentException("Can't write file " + outputFile);
         }
-    }
-}
-
-final class Entry implements Comparable {
-    private String key;
-    private int value;
-
-    public Entry(String key, int value) {
-        this.key = key;
-        this.value = value;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        Entry entry2 =(Entry) o;
-        return value-entry2.value;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%s = %d", key, value);
     }
 }
