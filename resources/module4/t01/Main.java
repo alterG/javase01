@@ -1,5 +1,6 @@
 package sandbox.Serialization.Example2;
 
+Serialization.Example2
 import java.io.*;
 
 /**
@@ -21,7 +22,7 @@ public class Main {
             stream1.writeObject(line1);     // index didn't change cause object has been serialized
             stream1.reset();                // CARE! stream data don't erase
             stream1.writeObject(line1);     // Now stream1 has: 2 objects Line (index = 1) and 1 object Line (index = 3)
-                                            // Note: Line has written after reset(), has new references for its fields (new point1, point2 in this way)
+            // Note: Line has written after reset(), has new references for its fields (new point1, point2 in this way)
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
