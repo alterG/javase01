@@ -50,7 +50,6 @@ public class StorageManager implements Serializable{
         }
     }
 
-    // ToDo: change to set
     public static Set<Movie> getStandartKit() {
         Actor actor1 = new Actor("Bruce Lee");
         Actor actor2 = new Actor("Brad Pitt");
@@ -61,7 +60,7 @@ public class StorageManager implements Serializable{
         Movie movie2 = new Movie("Mr. and Mrs. Smith", new HashSet<Actor>(Arrays.asList(actor2, actor4)));
         Movie movie3 = new Movie("Matrix", new HashSet<Actor>(Arrays.asList(actor3)));
         Movie movie4 = new Movie("Fist of Fury", new HashSet<Actor>(Arrays.asList(actor1)));
-        HashSet<Movie> standartKit = new HashSet<>(Arrays.asList(movie1, movie2, movie3, movie4));
+        Set<Movie> standartKit = new HashSet<>(Arrays.asList(movie1, movie2, movie3, movie4));
         return standartKit;
     }
 }
