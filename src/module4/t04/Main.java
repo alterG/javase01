@@ -3,6 +3,8 @@ package module4.t04;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.HashSet;
 
 /**
  * Условие:
@@ -26,6 +28,8 @@ public class Main {
             System.out.println("Данные прочитаны с диска.");
         }
         System.out.println(collection);
+//        collection.removeMovie(new Movie("The Wolf of Wall Street", new HashSet<Actor>(Arrays.asList(new Actor("Leonardo de Caprio")))));
+//        collection.addMovie(new Movie("The Wolf of Wall Street", new HashSet<Actor>(Arrays.asList(new Actor("Leonardo de Caprio")))));
         StorageManager.save(collection, saveFile);
         System.out.println("Данные сохранены на диск.");
     }
