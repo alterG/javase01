@@ -4,7 +4,8 @@
 - [X] Module #1
 - [X] Module #2  
 - [X] Module #3
-- [ ] Module #4 
+- [X] Module #4 
+- [ ] Module #5 
 
 **Quizful.com**  
 - [X] Main method, primitive types
