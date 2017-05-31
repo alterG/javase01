@@ -1,8 +1,8 @@
 package module5.t01;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -16,12 +16,14 @@ import java.util.regex.Pattern;
  * системы, а также создавать и удалять текстовые файлы. Для работы с текстовыми файлами
  * необходимо реализовать функциональность записи (дозаписи) в файл. Требуется определить
  * исключения для каждого слоя приложения и корректно их обработать.
- *
+ * <p>
  * Notes:
  * Files and directories are united in File
  * Firstly, you should to realize class architecture and methods logic
- *
+ * Good article at metanit.com/java/tutorial/6.11.php
+ * <p>
  * ToDo: generate documentation
+ * ToDO: add move and compile into jar
  * Created by alterG on 30.05.2017.
  */
 public class Main {
@@ -60,15 +62,15 @@ public class Main {
                     try {
                         File fileToCat = getArgument2(inputBuffer, argument2Index, true);
                         cat(fileToCat);
-                    } catch (IllegalArgumentException  | IOException e) {
+                    } catch (IllegalArgumentException | IOException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case "touch":
                     argument2Index = matcher.end(1);
                     try {
-                        File fileToCat = getArgument2(inputBuffer, argument2Index, false);
-                        if (touch(fileToCat)) {
+                        File fileToCreate = getArgument2(inputBuffer, argument2Index, false);
+                        if (touch(fileToCreate)) {
                             System.out.println("File is created.");
                         } else {
                             System.out.println("File can't be created.");
@@ -77,25 +79,105 @@ public class Main {
                         System.out.println(e.getMessage());
                     }
                     break;
+                case "mkdir":
+                    argument2Index = matcher.end(1);
+                    try {
+                        File dirToCreate = getArgument2(inputBuffer, argument2Index, false);
+                        if (mkdir(dirToCreate)) {
+                            System.out.println("Directory is created.");
+                        } else {
+                            System.out.println("Directory can't be created.");
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case "rm":
+                    argument2Index = matcher.end(1);
+                    try {
+                        File fileToDelete = getArgument2(inputBuffer, argument2Index, true);
+                        String fileType = fileToDelete.isFile() ? "File" : "Directory";
+                        if (rm(fileToDelete)) {
+                            System.out.println(String.format("%s is deleted.", fileType));
+                        } else {
+                            System.out.println(String.format("%s can't be deleted.", fileType));
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case "write":
+                    try {
+                        argument2Index = matcher.end(1);
+                        File fileToWrite = getArgument2(inputBuffer, argument2Index, true);
+                        System.out.println("Введите текст для записи в файл:");
+                        String buffer = scanner.nextLine();
+                        write(fileToWrite, buffer);
+                    } catch (IOException e) {
+                        System.out.println("Operation failed. Can't write file.");
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case "rewrite":
+                    try {
+                        argument2Index = matcher.end(1);
+                        File fileToWrite = getArgument2(inputBuffer, argument2Index, true);
+                        System.out.println("Введите текст для записи в файл:");
+                        String buffer = scanner.nextLine();
+                        rewrite(fileToWrite, buffer);
+                    } catch (IOException e) {
+                        System.out.println("Operation failed. Can't write file.");
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
                 case "exit":
                     System.out.println("Thank you for work.");
                     System.exit(0);
                     break;
                 default:
-                    System.out.println(argument1+" (def)");
+                    System.out.println(argument1 + " (def)");
             }
 
         }
     }
 
     /**
+     * Write new text to file
+     * @param file to erase file context and write new text
+     * @param text to write
+     * @throws IOException if I/O crashed
+     */
+    private static void rewrite(File file, String text) throws IOException {
+        FileWriter writer = new FileWriter(file);
+        writer.write(text);
+        writer.close();
+    }
+
+    /**
+     * Append new text to file
+     * @param file to append new text
+     * @param text to append
+     * @throws IOException if I/O crashed
+     */
+    private static void write(File file, String text) throws IOException {
+        String source = new String(Files.readAllBytes(Paths.get(file.getPath())));
+        FileWriter writer = new FileWriter(file);
+        writer.write(source);
+        writer.write(text);
+        writer.close();
+    }
+
+    /**
      * Parse 2nd argument
      * Note: method makes too much work
+     *
      * @param string to parse 2nd argument
-     * @param start position index to parse
+     * @param start  position index to parse
      * @return argument for command
      * @throws IllegalArgumentException if pwd doesn't contain parsed file (in 2nd argument) or
-     * 2nd argument has wrong format
+     *                                  2nd argument has wrong format
      */
     private static File getArgument2(String string, int start, boolean isExistValidation) throws IllegalArgumentException {
         Matcher matcher = secondArgument.matcher(string.substring(start));
@@ -110,7 +192,7 @@ public class Main {
         } else {
             File parsedFile = new File(pwd.getAbsolutePath() + "\\" + matcher.group(1));
             if (isExistValidation) {
-            Set<File> fileSet = new HashSet<>(Arrays.asList(file.listFiles()));
+                Set<File> fileSet = new HashSet<>(Arrays.asList(file.listFiles()));
                 if (fileSet.contains(parsedFile)) {
                     return parsedFile;
                 } else {
@@ -122,6 +204,13 @@ public class Main {
         }
     }
 
+    /**
+     * Create file
+     *
+     * @param file to create
+     * @return true if file has been created
+     * @throws IOException if I/O stream crushed
+     */
     private static boolean touch(File file) throws IOException {
         try {
             return file.createNewFile();
@@ -131,7 +220,28 @@ public class Main {
     }
 
     /**
+     * Create directory
+     *
+     * @param directory to create
+     * @return true if directory has been created
+     */
+    private static boolean mkdir(File directory) {
+        return directory.mkdir();
+    }
+
+    /**
+     * Delete file or directory
+     *
+     * @param file to delete
+     * @return true if file has been deleted
+     */
+    private static boolean rm(File file) {
+        return file.delete();
+    }
+
+    /**
      * Print files in directory
+     *
      * @param file target directory
      */
     private static void ls(File file) {
@@ -142,20 +252,22 @@ public class Main {
 
     /**
      * Change pwd to given directory
+     *
      * @param file target directory
      */
     private static void cd(File file) throws IllegalArgumentException {
         if (!file.canRead() || !file.canExecute()) {
             throw new IllegalArgumentException("Access denied.");
         }
-            pwd = file;
+        pwd = file;
     }
 
     /**
      * Print content of file
-     *
+     * <p>
      * Here we can know reason of exception, that's why we throw exception
      * with it's reason after catching it
+     *
      * @param file to print it's content
      * @throws IOException with reason of it
      */
@@ -167,7 +279,7 @@ public class Main {
             if (file.isDirectory()) {
                 errorMessage = "Can't read directory.";
             } else if (file.isFile() && !file.canRead()) {
-                errorMessage ="Can't read file. Access error.";
+                errorMessage = "Can't read file. Access error.";
             } else {
                 errorMessage = "Can't read file. Unknown error.";
             }
