@@ -1,8 +1,8 @@
 package module4.t02;
 
+import module4.t01.Entry;
 import module4.t01.LexicalAnalyzerByteStream;
 
-import module4.t01.Entry;
 import java.io.*;
 import java.util.*;
 
@@ -15,7 +15,7 @@ import java.util.*;
  */
 public class LexicalAnalyzerSymbolStream {
     private static final String pathToKeywords = "keywordsjava.txt";
-    private static final File inputFile = getResourceAsFile("Main.java");
+    private static final File inputFile = getResourceAsFile("FileSystemExplorer.java");
     private static final File outputFile = getOutputFile("out.txt");
 
     public static void main(String[] args) throws IOException {

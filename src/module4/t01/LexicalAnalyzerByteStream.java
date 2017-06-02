@@ -15,7 +15,7 @@ import java.util.*;
  */
 public class LexicalAnalyzerByteStream {
     private static final String pathToKeywords = "keywordsjava.txt";
-    private static final File inputFile = getResourceAsFile("Main.java");
+    private static final File inputFile = getResourceAsFile("FileSystemExplorer.java");
     private static final File outputFile = getOutputFile("out.txt");
 
     public static final void main(String[] args) throws IOException {
