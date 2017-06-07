@@ -1,0 +1,21 @@
+package sandbox.converter;
+
+option java_package = "sandbox.converter";
+option java_outer_classname = "PeopleProtos";
+
+message People {
+    repeated Person persons = 1;
+}
+
+message Person {
+    required string name = 1;
+    required string surname = 2;
+    required int32 id = 3;
+    required bool isAdmin = 4;
+    repeated Message messages = 5;
+}
+
+message Message {
+    required int32 id = 1;
+    optional string text = 2 [default = ""];
+}
