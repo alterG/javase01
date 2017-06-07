@@ -1,10 +1,9 @@
 package sandbox.hashmap;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by alterG on 02.06.2017.
@@ -23,11 +22,6 @@ public class MyHashMapTest {
         map.put(33, "i dont remember");
     }
 
-    @Ignore     // don't know how to test this method
-    @Test
-    public void put() throws Exception {
-
-    }
 
     @Test
     public void getUnexistingElem() {
@@ -61,8 +55,49 @@ public class MyHashMapTest {
     }
 
     @Test
+    public void ensureCapacityTest() {
+        for (int i = 1; i < 300; i++) {
+            map.put(Integer.valueOf(33 + i), "wrongAnswer");
+            if (i % 10 == 0) {
+                assertEquals("Three", map.get(3));
+                assertEquals("Four", map.get(4));
+                assertEquals("Five", map.get(5));
+                assertEquals("Threeteen", map.get(13));
+                assertEquals("Twenty Three", map.get(23));
+                assertEquals("i dont remember", map.get(33));
+            }
+        }
+    }
+
+    @Test
+    public void removeTest() {
+        assertEquals("Three", map.get(3));
+        map.remove(3);
+        assertEquals(null, map.get(3));
+        assertEquals("i dont remember", map.get(33));
+    }
+
+    @Test
+    public void removeTestCollisition() {
+        // map.size = 10
+        // map.array[3] = 3->13->23->33
+        assertEquals("Twenty Three", map.get(23));
+        map.remove(23);
+        assertEquals(null, map.get(23));
+        assertEquals("i dont remember", map.get(33));
+    }
+
+    @Test
     public void size() throws Exception {
-        assertEquals(6, map.size());
+        MyHashMap<Integer, String> map2 = new MyHashMap<>();
+        assertEquals(0, map2.size());
+        map2.put(3, "Three");
+        map2.put(4, "Four");
+        map2.put(5, "Five");
+        map2.put(13, "Threeteen");
+        map2.put(23, "Twenty Three");
+        map2.put(33, "i dont remember");
+        assertEquals(6, map2.size);
     }
 
 }
