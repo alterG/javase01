@@ -3,7 +3,7 @@ package sandbox.hashmap;
 /**
  * Created by alterG on 02.06.2017.
  */
-// ToDo: add remove() and ensureCapacity()
+
 public class MyHashMap<K,V> implements sandbox.hashmap.HashMap<K,V> {
     private Entry[] array;
     private final int INITIAL_SIZE = 5;
