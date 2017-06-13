@@ -1,10 +1,18 @@
-package sandbox.Sortings.insertion;
+package sandbox.sortings.insertion;
 
-import sandbox.Sortings.AbstractSortingAlgorithm;
+import sandbox.sortings.template.AbstractSortingAlgorithm;
 
 import java.util.Arrays;
 
 /**
+ * Time complexity:
+ * random - O(n^2)
+ * bad - O(n^2)
+ * best - O(n)
+ *
+ * Memory complexity:
+ * always O(1)
+ *
  * Created by alterG on 13.06.2017.
  */
 public class Insertion extends AbstractSortingAlgorithm {
