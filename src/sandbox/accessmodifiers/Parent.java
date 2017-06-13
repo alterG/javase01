@@ -11,17 +11,17 @@ public class Parent {
 }
 
 
-class Child extends Parent {
+class InnerChild extends Parent {
     public void example() {
         int x = publicValue;
-        int y = privateValue; // ok cause Child in the same package as Parent
+        int y = privateValue; // ok cause InnerChild in the same package as Parent
         int z = protectedValue; // access for childs
     }
 }
 
 class NotAChild {
     int x = Parent.publicValue;
-    int y = Parent.privateValue; // ok cause Child in the same package as Parent
+    int y = Parent.privateValue; // ok cause InnerChild in the same package as Parent
     int z = Parent.protectedValue; // access for class in the same package
 }
 
