@@ -28,7 +28,7 @@ public class Insertion extends AbstractSortingAlgorithm {
         for (int i = 1; i < a.length; i++) {
             int temp = a[i];
             int j = i;
-            while (j >= 1 && temp < a[j - 1]) {
+            while (j > 0 && temp < a[j - 1]) {
                 a[j] = a[j - 1];
                 j--;
             }
@@ -41,7 +41,7 @@ public class Insertion extends AbstractSortingAlgorithm {
         for (int i = 1; i < a.length; i++) {
             Comparable temp = a[i];
             int j = i;
-            while (j >= 1 && less(temp, (a[j - 1]))) {
+            while (j > 0 && less(temp, (a[j - 1]))) {
                 a[j] = a[j - 1];
                 j--;
             }

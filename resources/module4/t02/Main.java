@@ -1,4 +1,4 @@
-package sandbox.Serialization.Example2;
+package sandbox.serialization.example2;
 
 Serialization.Example2
 import java.io.*;
