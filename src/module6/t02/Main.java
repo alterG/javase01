@@ -29,6 +29,6 @@ public class Main {
                 System.out.println("Значения по данному ключу не существует");
             }
         }
-
+        scanner.close();
     }
 }

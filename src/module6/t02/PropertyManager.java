@@ -22,6 +22,7 @@ public class PropertyManager {
     public void loadFromFile(File file) throws IOException {
         FileReader fr = new FileReader(file);
         properties.load(fr);
+        fr.close();
         for (String key : properties.stringPropertyNames()) {
             storage.put(key, properties.getProperty(key));
         }
