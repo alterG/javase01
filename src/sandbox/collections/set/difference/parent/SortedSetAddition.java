@@ -1,9 +1,9 @@
-package sandbox.collections.sortedset;
+package sandbox.collections.set.difference.parent;
 
 /**
  * Created by alterG on 21.06.2017.
  */
-interface SortedSetAddition<V extends Comparable> {
+public interface SortedSetAddition<V extends Comparable> {
 
     V getNextElem(V elem);
 
