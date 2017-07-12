@@ -1,12 +1,11 @@
 package module2.t05.try2;
 
-import java.io.IOException;
 
 /**
  * Created by alterG on 12.07.2017.
  */
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Company company = new Company("Epam systems");
         company.addSubjectToCompany(Subject.MATH);
 
