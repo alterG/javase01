@@ -27,4 +27,36 @@ public class Group {
     public int getId() {
         return id;
     }
+
+    public boolean contains(Student student) {
+        return studentList.contains(student);
+    }
+
+    public String getGroupInfo() {
+        StringBuilder res = new StringBuilder();
+        res.append("Group #" + id + ":\n");
+        int number = 1;
+        for (Student student : studentList) {
+            res.append(number++ + ". " + student.name + "\n");
+        }
+        return res.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Group group = (Group) o;
+
+        if (id != group.id) return false;
+        return studentList != null ? studentList.equals(group.studentList) : group.studentList == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = studentList != null ? studentList.hashCode() : 0;
+        result = 31 * result + id;
+        return result;
+    }
 }

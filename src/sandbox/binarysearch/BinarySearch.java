@@ -13,9 +13,9 @@ public class BinarySearch {
             int mid  = (left+right)/2;
             if (a[mid] == b) return mid;
             else if (b < a[mid]) {
-                right = mid;
+                right = mid - 1;
             } else {
-                left = mid;
+                left = mid + 1;
             }
         }
         return -1;

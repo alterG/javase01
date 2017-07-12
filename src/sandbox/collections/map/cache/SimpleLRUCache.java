@@ -25,7 +25,7 @@ public class SimpleLRUCache<K, V> extends LinkedHashMap<K, V> {
         SimpleLRUCache<Integer, String> cache = new SimpleLRUCache(2);
         cache.put(1, "one");
         cache.put(2, "two"); //1-, 2
-        cache.get(1); //1, 2-
+        cache.get(1); //1, 2
         cache.put(3, "three"); // 1-, 3
         System.out.println(cache);
     }

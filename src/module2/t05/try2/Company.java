@@ -1,9 +1,6 @@
 package module2.t05.try2;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by alterG on 12.07.2017.
@@ -26,7 +23,7 @@ public class Company {
 
     public void addStudentToGroup(int groupId, Student student) {
         Group group = companyGroups.get(groupId);
-        boolean isGroupExist = (group == null);
+        boolean isGroupExist = !(group == null);
         if (isGroupExist) {
             group.addStudent(student);
             updateMarkList(groupId, student);
@@ -81,6 +78,48 @@ public class Company {
         }
     }
 
+    public void printGroupInfo(int groupId) {
+        Group group = companyGroups.get(groupId);
+        System.out.print(group.getGroupInfo());
+    }
+
+    public void printSubjectInfo() {
+
+        StringBuilder res = new StringBuilder();
+        res.append("Subjects:\n");
+        int number = 1;
+        for (Subject subject : companySubjects) {
+            res.append(number++ + ". " + subject.getName() + "\n");
+        }
+        System.out.print(res);
+    }
+
+    public void printStudentInfo(Student student) {
+        Set<Integer> studentGroupIds = getGroupsByStudent(student);
+        Set<Subject> studentSubjects = getSubjectsByGroup(studentGroupIds);
+        StringBuilder res = new StringBuilder();
+
+        res.append("Student " + student.name + ":\n" +
+                "\tStudent group ids:");
+        if (studentGroupIds.isEmpty()) {
+            res.append(" none");
+        } else {
+            for (int id : studentGroupIds) {
+                res.append(" " + id + ",");
+            }
+            res.delete(res.length() - 1, res.length() - 1); // delete last character
+        }
+        res.append(".\n\tStudent subjects:");
+        if (studentSubjects.isEmpty()) {
+            res.append(" none.\n");
+        } else {
+            for (Subject subject : studentSubjects) {
+                Number mark = subjectMarkListMap.get(subject).getStudentMark(student);
+                res.append(String.format("%s, mark is %d.\n", subject.getName(), mark));
+            }
+        }
+        System.out.print(res);
+    }
 
     // return set with all subject contains this group
     private Set<Subject> getSubjectsByGroup(int groupId) {
@@ -89,6 +128,29 @@ public class Company {
             for (Group group : subjectGroupSetMap.get(subject)) {
                 if (group.getId() == groupId) {
                     resultSet.add(subject);
+                }
+            }
+        }
+        return resultSet;
+    }
+
+    // return set with all subject contains these groups
+    private Set<Subject> getSubjectsByGroup(Collection<Integer> ids) {
+        Set<Subject> resultSet = new HashSet<>();
+        for (int id : ids) {
+            Set<Subject> groupSubjects = getSubjectsByGroup(id);
+            resultSet.addAll(groupSubjects);
+        }
+        return resultSet;
+    }
+
+    // return set with all group ids contains this student
+    private Set<Integer> getGroupsByStudent(Student student) {
+        Set<Integer> resultSet = new HashSet<>();
+        for (Subject subject : companySubjects) {
+            for (Group group : subjectGroupSetMap.get(subject)) {
+                if (group.contains(student)) {
+                    resultSet.add(group.getId());
                 }
             }
         }

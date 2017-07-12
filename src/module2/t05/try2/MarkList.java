@@ -32,4 +32,8 @@ public class MarkList<T extends Number> {
             markList.put(student, mark);
         }
     }
+
+    public T getStudentMark(Student student) {
+        return markList.get(student);
+    }
 }
