@@ -1,4 +1,4 @@
-package module2.t05.try2;
+package module2.t05;
 
 /**
  * Created by alterG on 12.07.2017.

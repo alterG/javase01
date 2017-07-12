@@ -1,4 +1,4 @@
-package module2.t05.try2;
+package module2.t05;
 
 /**
  * DTO that's why field is public
