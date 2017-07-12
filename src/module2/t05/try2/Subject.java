@@ -11,6 +11,14 @@ public enum Subject {
     private String name;
     private boolean isInteger;
 
+    public boolean isInteger() {
+        return isInteger;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     private Subject(String name, boolean isInteger) {
         this.name = name;
         this.isInteger = isInteger;
