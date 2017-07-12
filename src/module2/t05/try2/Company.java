@@ -30,7 +30,7 @@ public class Company {
         }
     }
 
-    public void addGroupToSubject(Subject subject, int groupId) {
+    public void addGroupToSubject(int groupId, Subject subject) {
         Group group = companyGroups.get(groupId);
         boolean isGroupAndSubjectExist = !(group == null || !companySubjects.contains(subject));
         if (isGroupAndSubjectExist) {
@@ -66,7 +66,7 @@ public class Company {
         boolean isMarkInteger = Math.abs(mark - roundedMark) < 10e-4;
         if (subject.isInteger()) {
             if (!isMarkInteger) {
-                System.out.println(subject.getName() + "не допускает вещественных оценок.");
+                System.out.println(subject.getName() + " не допускает вещественных оценок.");
                 return;
             } else {
                 MarkList<Integer> markList = subjectMarkListMap.get(subject);
@@ -80,7 +80,13 @@ public class Company {
 
     public void printGroupInfo(int groupId) {
         Group group = companyGroups.get(groupId);
-        System.out.print(group.getGroupInfo());
+        Set<Student> studentSet = group.getStudentSet();
+        System.out.print("Group #" + groupId + ":\n");
+        int number = 1;
+        for (Student student : studentSet) {
+            System.out.print(number++ + ". ");
+            printStudentInfo(student);
+        }
     }
 
     public void printSubjectInfo() {
@@ -100,22 +106,23 @@ public class Company {
         StringBuilder res = new StringBuilder();
 
         res.append("Student " + student.name + ":\n" +
-                "\tStudent group ids:");
+                "\tgroup ids:");
         if (studentGroupIds.isEmpty()) {
             res.append(" none");
         } else {
             for (int id : studentGroupIds) {
                 res.append(" " + id + ",");
             }
-            res.delete(res.length() - 1, res.length() - 1); // delete last character
+            res.delete(res.length() - 1, res.length()); // delete last character
         }
-        res.append(".\n\tStudent subjects:");
+        res.append(".\n\tsubjects:");
         if (studentSubjects.isEmpty()) {
             res.append(" none.\n");
         } else {
+            res.append("\n");
             for (Subject subject : studentSubjects) {
                 Number mark = subjectMarkListMap.get(subject).getStudentMark(student);
-                res.append(String.format("%s, mark is %d.\n", subject.getName(), mark));
+                res.append(String.format("\t\t%s, mark is %s.\n", subject.getName(), mark == null ? "absent" : mark));
             }
         }
         System.out.print(res);
