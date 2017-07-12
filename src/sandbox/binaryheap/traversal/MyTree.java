@@ -9,6 +9,92 @@ import sandbox.myqueue.QueueOnLinkedList;
 public class MyTree<E extends Comparable> {
     public Node<E> root;
 
+    public boolean delete(E key) {
+        Node<E> parent = root;
+        Node<E> current = root;
+        boolean isLeftChild = true;
+
+        // searching for node
+        while (!key.equals(current.value)) {
+            parent = current;
+            if (current.less(key)) {
+                current = current.right;
+                isLeftChild = false;
+            } else {
+                current = current.left;
+                isLeftChild = true;
+            }
+            if (current == null) return false;  // node isn't exist
+        }
+        // if node has no children
+        if (current.left == null && current.right == null) {
+            if (current == root) {
+                root = null;
+            } else {
+                if (isLeftChild) {
+                    parent.left = null;
+                } else {
+                    parent.right = null;
+                }
+            }
+            return true;
+        }
+        // if node has one child
+        if (current.left == null) {
+            if (current == root) {
+                root = current.right;
+            } else {
+                if (isLeftChild) {
+                    parent.left = current.right;
+                } else {
+                    parent.right = current.right;
+                }
+            }
+            return true;
+        }
+        if (current.right == null) {
+            if (current == root) {
+                root = current.left;
+            } else {
+                if (isLeftChild) {
+                    parent.left = current.left;
+                } else {
+                    parent.right = current.left;
+                }
+            }
+            return true;
+        }
+        // if node has two children
+        Node successor = getSuccessor(current);
+        if (current == root) {
+            root = successor;
+        } else {
+            if (isLeftChild) {
+                parent.left = successor;
+            } else {
+                parent.right = successor;
+            }
+        }
+        successor.left = current.left;
+        return true;
+    }
+
+    private Node getSuccessor(Node delNode) {
+        Node<E> successorParent = delNode;
+        Node<E> successor = delNode;
+        Node<E> current = delNode.right;
+        while (current != null) {
+            successorParent = successor;
+            successor = current;
+            current = current.left;
+        }
+        if (successor != delNode.right) {
+            successorParent.left = successor.right;
+            successor.right = delNode.right;
+        }
+        return successor;
+    }
+
     public void horizontalTraverse() {
         Queue<Node> queue = new QueueOnLinkedList<>();
         if (root != null) {
@@ -58,14 +144,6 @@ public class MyTree<E extends Comparable> {
         }
     }
 
-
-    public void init() {
-        int pos = 0;
-        Node current = root;
-        while (pos < 15) {
-            current.left = new Node(++pos);
-        }
-    }
 
     public void insert(E key) {
         if (root == null) {
